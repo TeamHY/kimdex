@@ -7,4 +7,4 @@ class Item(models.Model):
 	text		= models.CharField(max_length = 500)
 
 	def __str__(self):
-		return self.name
+		return str(self.game_id).zfill(3) + " " + self.name + ": " + self.text

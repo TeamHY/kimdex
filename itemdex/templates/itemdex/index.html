@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!doctype html>
 <html lang="ko">
   <head>
@@ -13,13 +14,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
+    <link href="{% static 'itemdex/css/index.css' %}" rel="stylesheet">
   </head>
 
   <body>
-
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">KimDex</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -52,12 +52,24 @@
     </nav>
 
     <main role="main" class="container">
-
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
-
+      <h4>카오스그리디어 아이템</h4>
+    {% if item_list %}
+      <ul class="list-unstyled">
+        <hr>
+      {% for item in item_list %}
+        <li class="media my-4">
+          <img class="mr-3" src="{% static 'itemdex/images/collectibles/' %}{{ item.game_id|stringformat:"03d" }}.png" alt="{{ item.name }} image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">
+              {{ item.name }}
+              <small class="text-muted">{{ item.game_id|stringformat:"03d" }}</small>
+            </h5>
+            {{ item.text }}
+          </div>
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
     </main><!-- /.container -->
 
 
