@@ -57,7 +57,7 @@
       <ul class="list-unstyled">
       {% for item in item_list %}
         <hr>
-        <li class="media my-4">
+        <li id="{{ item.game_id|stringformat:"03d" }}" class="media my-4">
           <img class="mr-3" src="{% static 'itemdex/images/collectibles/' %}{{ item.game_id|stringformat:"03d" }}.png" alt="{{ item.name }} image">
           <div class="media-body">
             <h5 class="mt-0 mb-1">
