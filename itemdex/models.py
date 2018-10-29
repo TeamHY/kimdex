@@ -4,6 +4,7 @@ class Item(models.Model):
 	game_id		= models.IntegerField(default = 0)
 	category	= models.IntegerField(default = 0)
 	name		= models.CharField(max_length = 50)
+	image		= models.ImageField()
 	text		= models.CharField(max_length = 500)
 
 	def __str__(self):
