@@ -58,7 +58,7 @@
       {% for item in item_list %}
         <hr>
         <li id="{{ item.game_id|stringformat:"03d" }}" class="media my-4">
-          <img class="mr-3" src="{{item.image}}{{ item.game_id|stringformat:"03d" }}.png" alt="{{ item.name }} image">
+          <img class="mr-3" src="{{item.image.url}}" alt="{{ item.name }} image">
           <div class="media-body">
             <h5 class="mt-0 mb-1">
               {{ item.name }}
